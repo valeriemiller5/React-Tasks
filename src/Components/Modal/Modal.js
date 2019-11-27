@@ -14,7 +14,6 @@ const AddTask = () => {
         <Button variant="info" onClick={handleShow}>
           Add Task
         </Button>
-  
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add Task</Modal.Title>
@@ -22,14 +21,6 @@ const AddTask = () => {
           <Modal.Body>
               <Form />
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Add
-            </Button>
-          </Modal.Footer>
         </Modal>
       </>
     );

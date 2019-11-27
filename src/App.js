@@ -1,11 +1,14 @@
 import React from 'react';
-import Form from './Components/Form/Form';
+import Navbar from './Components/Navbar/Navbar';
+import TaskTable from './Components/Table/Table';
 import { Container } from './Components/Grid/Container';
 
 function App() {
+  
   return (
     <Container>
-      <Form />
+      <Navbar />
+      <TaskTable />
     </Container>
   );
 }

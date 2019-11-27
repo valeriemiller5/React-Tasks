@@ -16,7 +16,6 @@ const Form = props => (
                 <option>High</option>
             </select>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
     </form>
 
 )

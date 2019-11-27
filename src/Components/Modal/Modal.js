@@ -1,26 +1,38 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Form from '../../Components/Form/Form';
+import { Modal, Button } from 'react-bootstrap';
 
-const Modal = props => (
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-)
+const AddTask = () => {
+    const [show, setShow] = React.useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    return (
+      <>
+        <Button variant="info" onClick={handleShow}>
+          Add Task
+        </Button>
+  
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add Task</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+              <Form />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Add
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
 
-export default Modal;
+  export default AddTask;

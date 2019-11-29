@@ -1,14 +1,9 @@
-import React from 'react';
-import Navbar from './Components/Navbar/Navbar';
-import TaskTable from './Components/Table/Table';
-import { Container } from './Components/Grid/Container';
+import React from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import TaskTable from "./Components/Table/Table";
+import Container from "./Components/Container/Container";
 
 class App extends React.Component {
-
-    // componentDidMount() {
-    //   window.sessionStorage.getItem("key");
-    // }
-
 
     render() {
       return (
@@ -17,7 +12,7 @@ class App extends React.Component {
           <TaskTable />
         </Container>
       )
-    }
-}
+    };
+};
 
 export default App;

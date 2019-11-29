@@ -1,6 +1,6 @@
-import React from 'react';
-import AddTask from '../Modal/Modal';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import AddTask from "../Modal/Modal";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class Navbar extends React.Component {
     
@@ -13,7 +13,7 @@ class Navbar extends React.Component {
                 </form>
             </nav>
         )
-    }
-}
+    };
+};
 
 export default Navbar;

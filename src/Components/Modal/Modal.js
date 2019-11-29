@@ -1,7 +1,7 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from '../../Components/Form/Form';
-import { Modal, Button } from 'react-bootstrap';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Form from "../../Components/Form/Form";
+import { Modal, Button } from "react-bootstrap";
 
 const AddTask = () => {
     const [show, setShow] = React.useState(false);
@@ -24,6 +24,6 @@ const AddTask = () => {
         </Modal>
       </>
     );
-  }
+  };
 
   export default AddTask;

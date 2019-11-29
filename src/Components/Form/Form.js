@@ -1,10 +1,10 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class Form extends React.Component {
     state = {
-        newTask: "",
-        newPriority: ""
+        newTask: [],
+        newPriority: []
     };
 
     handleInputChange = event => {
@@ -14,12 +14,14 @@ class Form extends React.Component {
         });
     };
 
+    // Currently, this is only saving one task at a time.
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(`New Task: ${this.state.newTask}, Priority: ${this.state.newPriority}`);
+        // Verify that the new task and priority have been set to state
+        // console.log(`New Task: ${this.state.newTask}, Priority: ${this.state.newPriority}`);
         this.setState({
-            newTask: "",
-            newPriority: "",
+            newTask: [],
+            newPriority: []
         });
         window.sessionStorage.setItem("task", this.state.newTask);
         window.sessionStorage.setItem("priority", this.state.newPriority);

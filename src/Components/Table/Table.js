@@ -5,6 +5,8 @@ import "./Table.css";
 class TaskTable extends React.Component {
 
     // When component mounts, find data saved in session storage and render it in a table row
+    // This currently works if there is only one task saved in the session storage.
+    // Once multiple tasks are saved in the state array, then .map() will sort through the array and print each task on its own line
     componentDidMount() {
         const table = document.getElementById("myTable");
         let row = table.insertRow(-1);

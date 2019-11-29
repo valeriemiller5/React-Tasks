@@ -23,6 +23,7 @@ class Form extends React.Component {
             newTask: [],
             newPriority: []
         });
+        // push new tasks into newTask array and corresponding priority in to the newPriority array
         window.sessionStorage.setItem("task", this.state.newTask);
         window.sessionStorage.setItem("priority", this.state.newPriority);
         window.location.reload();

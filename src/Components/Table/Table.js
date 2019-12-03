@@ -8,21 +8,26 @@ class TaskTable extends React.Component {
     // This currently works if there is only one task saved in the session storage.
     // Once multiple tasks are saved in the state array, then .map() will sort through the array and print each task on its own line
     componentDidMount() {
-        const table = document.getElementById("myTable");
-        let row = table.insertRow(-1);
-        row.classList.add("stripes");
-        let newTask = row.insertCell(0);
-        let newPriority = row.insertCell(1);
-        const button = "<button class='btn btn-warning'>Edit</button>" +  
-        "<button class='btn btn-danger'>Delete</button>";
-        newTask.innerHTML = window.sessionStorage.getItem("task");
-        newPriority.innerHTML = window.sessionStorage.getItem("priority");
-        newPriority.innerHTML += button;
+        if (window.sessionStorage.getItem("task") === null) {
+            console.log("create a task to start a new row.");
+        } else {
+            console.log("add a task to create a new row.");
+            const table = document.getElementById("myTable");
+            let row = table.insertRow(-1);
+            row.classList.add("stripes");
+            let newTask = row.insertCell(0);
+            let newPriority = row.insertCell(1);
+            const button = "<button class='btn btn-warning'>Edit</button>" + "<button class='btn btn-danger delete'>Delete</button>";
+            newTask.innerHTML = window.sessionStorage.getItem("task");
+            newPriority.innerHTML = window.sessionStorage.getItem("priority");
+            newPriority.innerHTML += button;
+        };
     };
 
-    handleDelete() {
+    handleDelete(e) {
         window.sessionStorage.removeItem("task");
         window.sessionStorage.removeItem("priority");
+        document.getElementById("myTable").deleteRow(e.target);
     };
 
     render() {
@@ -48,7 +53,7 @@ class TaskTable extends React.Component {
                         <td>
                             High
                             <button className="btn btn-warning edit">Edit</button>
-                            <button className="btn btn-danger delete" onClick={this.handleDelete}>Delete</button>
+                            <button className="btn btn-danger" onClick={this.handleDelete}>Delete</button>
                         </td>
                     </tr>
                 </tbody>

@@ -17,10 +17,8 @@ class Form extends React.Component {
     // Currently, this is only saving one task at a time.
     handleFormSubmit = event => {
         event.preventDefault();
-        let tasks = this.state.newTask;
-        let priorities = this.state.newPriority;
-        // tasks.push(tasks);
-        // priorities.push(priorities);
+        const tasks = this.state.newTask;
+        const priorities = this.state.newPriority;
         console.log(tasks);
         console.log(priorities);
         // tasks.map(task => {
@@ -35,7 +33,7 @@ class Form extends React.Component {
         // push new tasks into newTask array and corresponding priority in to the newPriority array
         window.sessionStorage.setItem("task", this.state.newTask);
         window.sessionStorage.setItem("priority", this.state.newPriority);
-        window.location.reload();
+        // window.location.reload();
     };
 
     render() {

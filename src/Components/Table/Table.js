@@ -11,20 +11,27 @@ class TaskTable extends React.Component {
         if (window.sessionStorage.getItem("task") === null) {
             console.log("create a task to start a new row.");
         } else {
-            console.log("add a task to create a new row.");
             const table = document.getElementById("myTable");
             let row = table.insertRow(-1);
             row.classList.add("stripes");
             let newTask = row.insertCell(0);
             let newPriority = row.insertCell(1);
-            const button = "<button class='btn btn-warning'>Edit</button>" + "<button class='btn btn-danger delete'>Delete</button>";
+            const button = "<button class='btn btn-warning'>Edit</button>" + "<button id='delete' class='btn btn-danger'>Delete</button>";
             newTask.innerHTML = window.sessionStorage.getItem("task");
             newPriority.innerHTML = window.sessionStorage.getItem("priority");
             newPriority.innerHTML += button;
+            document.addEventListener("click", function (e) {
+                if (e.target && e.target.id === "delete") {
+                    window.sessionStorage.removeItem("task");
+                    window.sessionStorage.removeItem("priority");
+                    document.getElementById("myTable").deleteRow(e.target.id);
+                }
+            });
         };
     };
 
-    handleDelete(e) {
+    //This only works on the hard-coded test rows in the table.  
+    handleDelete = (e) => {
         window.sessionStorage.removeItem("task");
         window.sessionStorage.removeItem("priority");
         document.getElementById("myTable").deleteRow(e.target);

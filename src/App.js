@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import TaskTable from "./Components/Table/Table";
+import Table from "./Components/Table/Table";
 import Container from "./Components/Container/Container";
 
 class App extends React.Component {
@@ -9,7 +9,7 @@ class App extends React.Component {
       return (
         <Container>
           <Navbar />
-          <TaskTable />
+          <Table />
         </Container>
       )
     };

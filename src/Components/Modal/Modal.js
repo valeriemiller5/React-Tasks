@@ -11,7 +11,7 @@ const AddTask = () => {
   
     return (
       <>
-        <Button variant="info" onClick={handleShow}>
+        <Button variant="secondary" onClick={handleShow}>
           Add Task
         </Button>
         <Modal show={show} onHide={handleClose}>

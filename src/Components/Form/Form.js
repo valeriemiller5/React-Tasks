@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class Form extends React.Component {
     state = {
-        newTask: [],
-        newPriority: []
+        newTask: "",
+        newPriority: "",
     };
 
     handleInputChange = event => {
@@ -14,26 +14,14 @@ class Form extends React.Component {
         });
     };
 
-    // Currently, this is only saving one task at a time.
     handleFormSubmit = event => {
         event.preventDefault();
-        const tasks = this.state.newTask;
-        const priorities = this.state.newPriority;
+        let tasks = this.state.newTask;
         console.log(tasks);
+        let priorities = this.state.newPriority;
         console.log(priorities);
-        // tasks.map(task => {
-        //     console.log(task);
-        // });
-        // Verify that the new task and priority have been set to state
-        console.log(`New Task: ${this.state.newTask}, Priority: ${this.state.newPriority}`);
-        this.setState({
-            newTask: tasks,
-            newPriority: priorities
-        });
-        // push new tasks into newTask array and corresponding priority in to the newPriority array
-        window.sessionStorage.setItem("task", this.state.newTask);
-        window.sessionStorage.setItem("priority", this.state.newPriority);
-        // window.location.reload();
+        localStorage.setItem(tasks, priorities);
+        window.location.reload();
     };
 
     render() {
@@ -41,7 +29,7 @@ class Form extends React.Component {
             <div>
                 <form className="search">
                     <div className="form-group">
-                        <label for="taskInput">Please submit a task:</label>
+                        <label htmlFor="taskInput">Please submit a task:</label>
                         <input
                             className="form-control"
                             value={this.state.newTask}
@@ -52,15 +40,15 @@ class Form extends React.Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label for="prioritySelect">What is the priority of this task?</label>
-                        <select className="form-control" value={this.state.newPriority} name="newPriority" onChange={this.handleInputChange} type="text">
+                        <label htmlFor="prioritySelect">What is the priority of this task?</label>
+                        <select className="form-control" name="newPriority" onChange={this.handleInputChange} type="text">
                             <option>Select Priority</option>
                             <option>Low</option>
                             <option>Medium</option>
                             <option>High</option>
                         </select>
                     </div>
-                    <button className="btn btn-info" type="submit" data-dismiss="modal" onClick={this.handleFormSubmit} style={{marginRight: 5 + 'px'}}>Submit</button>
+                    <button className="btn btn-info" type="button" data-dismiss="modal" onClick={this.handleFormSubmit} style={{ marginRight: 5 + 'px' }}>Submit</button>
                     <button className="btn btn-secondary" type="button" onClick={() => window.location.reload()}>Cancel</button>
                 </form>
             </div>

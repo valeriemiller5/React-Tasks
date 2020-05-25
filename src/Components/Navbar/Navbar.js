@@ -1,5 +1,6 @@
 import React from "react";
 import AddTask from "../Modal/Modal";
+import Dropdown from "../Dropdown/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Navbar extends React.Component {
@@ -11,6 +12,7 @@ class Navbar extends React.Component {
                     <span className="navbar-brand mb-0 h1">Task Manager</span>
                     <AddTask />
                 </form>
+                <Dropdown />
             </nav>
         )
     };

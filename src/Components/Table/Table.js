@@ -8,14 +8,10 @@ class Table extends React.Component {
         tasks: Object.keys(localStorage)
     }
 
-    handleEdit = (e) => {
-
-    }
-
     render() {
         return (
             <table>
-                <thead>
+                <thead className="navbar-dark bg-dark mb-0 h5 text-white">
                     <tr>
                         <th>Task</th>
                         <th>Priority</th>
@@ -27,8 +23,8 @@ class Table extends React.Component {
                             key={task + 1}
                             task={task}
                             priority={localStorage.getItem(task)}
-                            handleDelete={() => {localStorage.removeItem(task); window.location.reload()}}
-                        />  
+                            handleDelete={() => { localStorage.removeItem(task); window.location.reload() }}
+                        />
                     ))}
                 </tbody>
             </table>
